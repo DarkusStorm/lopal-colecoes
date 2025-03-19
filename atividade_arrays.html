@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        let alunos = ["Aline", "Arthur", "Bárbara", "Bruna Luise", "Bruna Torres", "Bruna Velôso", "Cauã", "Daniel", "Davi"];
+        alunos.push("Gabriel");
+        alunos.push("Henrique");
+
+        let adição = prompt("Os nomes na lista atual são Aline, Arthur, Bárbara, Bruna L, Bruna T, Bruna V, Cauã, Daniel, Gabriel e Henrique. Deseja adicionar mais um aluno à lista?");
+
+        if (adição != null && adição != "") { // Adiciona o primeiro nome apenas caso o usuário tenha digitado algo.
+            alunos.push(adição);
+        }
+
+        let resposta = "Sim"; // Inicializamos com "Sim" para entrar no loop
+        while (resposta.toLowerCase() == "sim") { // Enquanto o usuário responder "sim", o programa seguirá perguntando.
+            resposta = prompt("Deseja digitar mais um nome?");
+
+            if (resposta.toLowerCase() == "sim") {
+                let nome = prompt("Digite o nome abaixo.");
+                if (nome != null && nome != "") { // Verifica novamente se o nome não é vazio, assim como no primeiro "if".
+                    alunos.push(nome);
+                }
+            }
+        }
+
+
+        for (let indice = 0; indice < alunos.length; indice++) {
+            document.write(alunos[indice] + "<br>");
+        }
+    </script>
+</body>
+
+</html>
