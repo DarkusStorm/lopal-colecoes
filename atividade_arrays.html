@@ -13,24 +13,30 @@
         alunos.push("Gabriel");
         alunos.push("Henrique");
 
-        let adição = prompt("Os nomes na lista atual são Aline, Arthur, Bárbara, Bruna L, Bruna T, Bruna V, Cauã, Daniel, Gabriel e Henrique. Deseja adicionar mais um aluno à lista?");
+        let adição = prompt("Os nomes na lista atual são Aline, Arthur, Bárbara, Bruna L, Bruna T, Bruna V, Cauã, Daniel, Gabriel e Henrique. Adicione mais um aluno à lista.");
 
-        if (adição != null && adição != "") { // Adiciona o primeiro nome apenas caso o usuário tenha digitado algo.
+        if (adição !== null && adição.trim !== "") { // Adiciona o primeiro nome apenas caso o usuário tenha digitado algo.
             alunos.push(adição);
         }
 
-        let resposta = "Sim";
-        while (resposta.toLowerCase() == "sim") { // Enquanto o usuário responder "sim", o programa seguirá perguntando.
-            resposta = prompt("Deseja digitar mais um nome?");
+        let resposta = "sim";
+        while (resposta !== null && resposta.toLowerCase() === "sim") { // Enquanto o usuário responder "sim", o programa seguirá perguntando.
+            resposta = prompt('Deseja digitar mais um nome? (Digite "sim" para continuar, ou qualquer coisa para parar.)');
 
-            if (resposta.toLowerCase() == "sim") {
+            if (resposta !== null && resposta.toLowerCase() === "sim") {
                 let nome = prompt("Digite o nome abaixo.");
-                if (nome != null && nome != "") { // Verifica novamente se o nome não é vazio, assim como no primeiro "if".
+
+                if (nome === null) {
+                    alert("Operação cancelada.")
+                    break;
+                }
+
+                if (nome !== null && nome.trim !== "") { // Verifica novamente se o nome não é vazio, assim como no primeiro "if".
                     alunos.push(nome);
                 }
+
             }
         }
-
 
         for (let indice = 0; indice < alunos.length; indice++) {
             document.write(alunos[indice] + "<br>");
