@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+    <h1>Dados dos Alunos</h1>
+    <button type="button" onclick="adicionarAlunos()">Adicionar Alunos</button>
+    <br>
+    <output></output>
+    <script>
+
+        let alunos = [
+            { nome: 'Aline', idade: 15, sesi: 'Ipiranga', temPet: false },
+            { nome: 'Bárbara', idade: 16, sesi: 'Vila Leopoldina', temPet: true }
+        ];
+        
+        function imprimirAlunos() {
+
+            document.querySelector('output').innerHTML = '<h1>Lista de alunos</h1>';
+
+            for (let i = 0; i < alunos.length; i++) {
+                document.querySelector('output').innerHTML = (`<p>${alunos[i].nome} tem ${alunos[i].idade} anos e é do SESI ${alunos[i].sesi}. ${alunos[i].temPet ? "Tem pet." : "Não tem pet."}</p>`);
+            }
+        }
+        function adicionarAlunos() {
+
+            let novoAluno = {
+                nome: prompt("Digite o nome do(a) aluno:"),
+                idade: prompt("Digite a idade do(a) aluno:"),
+                sesi: prompt("Digite o SESI do aluno(a)"),
+                temPet: confirm("O aluno tem algum animal de estimação?")
+            };
+            opcaoUsuario = confirm('Deseja adicionar mais um aluno?');
+
+            while (opcaoUsuario) {
+                adicionarAlunos();
+            }
+            alunos.push(novoAluno);
+            imprimirAlunos();
+        }
+
+        function removerAlunos() {
+            alunos.pop();
+            imprimirAlunos();
+        }
+    </script>
+    <br>
+    <button type="button" onclick="removerAlunos()">Remover último aluno</button>
+    <output></output>
+    </script>
+</body>
+
+</html>
